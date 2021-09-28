@@ -1,0 +1,29 @@
+server:
+  port: 8081
+
+spring:
+  application:
+    name: gateway-service
+  cloud:
+    gateway:
+      globalcors:
+        add-to-simple-url-handler-mapping: ""http://localhost:4200"
+        corsConfigurations:
+          '[/**]':
+            allowedOrigins: "http://localhost:4200"
+            allowedMethods:
+              - GET
+              - POST
+              - PUT
+              - DELETE
+              
+      routes:
+        - id: user-registration-service
+          uri: lb://user-registration-service
+          predicates:
+            - Path=/user/**
+
+eureka:
+  instance:
+    hostname: localhost
+      
