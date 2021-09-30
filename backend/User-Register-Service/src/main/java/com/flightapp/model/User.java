@@ -27,7 +27,7 @@ public class User
 	@Column(unique = true)
 	private String userMobile;
 	private String userPassword;
-	private LocalDate registrationDate;
+//	private LocalDate registrationDate;
 	
 	@OneToOne
 	private Role role;
@@ -40,7 +40,7 @@ public class User
 		// TODO Auto-generated constructor stub
 	}
 
-	public User(int userId, String userName, String userEmail, String userMobile, String userPassword, LocalDate registrationDate, Role role,
+	public User(int userId, String userName, String userEmail, String userMobile, String userPassword, Role role,
 			List<UserHistory> userHis) {
 		super();
 		this.userId = userId;
@@ -48,7 +48,7 @@ public class User
 		this.userEmail = userEmail;
 		this.userMobile = userMobile;
 		this.userPassword = userPassword;
-		this.registrationDate = registrationDate;
+//		this.registrationDate = registrationDate;
 		this.role = role;
 		this.userHis = userHis;
 	}
@@ -93,13 +93,13 @@ public class User
 		this.userPassword = userPassword;
 	}
 
-	public LocalDate getRegistrationDate() {
-		return registrationDate;
-	}
-
-	public void setRegistrationDate(LocalDate registrationDate) {
-		this.registrationDate = registrationDate;
-	}
+//	public LocalDate getRegistrationDate() {
+//		return registrationDate;
+//	}
+//
+//	public void setRegistrationDate(LocalDate registrationDate) {
+//		this.registrationDate = registrationDate;
+//	}
 
 	public Role getRole() {
 		return role;

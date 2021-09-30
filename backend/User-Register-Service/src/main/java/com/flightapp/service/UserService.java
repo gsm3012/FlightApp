@@ -36,7 +36,7 @@ public class UserService
 		
 		this.roleRepo.save(role);
 		
-		user.setRegistrationDate(LocalDate.now());
+//		user.setRegistrationDate(LocalDate.now());
 		user.setRole(role);
 		
 		this.userRepo.save(user);	
