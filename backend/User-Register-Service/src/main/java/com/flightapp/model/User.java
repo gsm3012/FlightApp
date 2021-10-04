@@ -1,6 +1,5 @@
 package com.flightapp.model;
 
-import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -15,6 +14,7 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
+
 @Entity
 public class User 
 {
@@ -27,7 +27,7 @@ public class User
 	@Column(unique = true)
 	private String userMobile;
 	private String userPassword;
-//	private LocalDate registrationDate;
+	private Date registrationDate;
 	
 	@OneToOne
 	private Role role;
@@ -40,7 +40,7 @@ public class User
 		// TODO Auto-generated constructor stub
 	}
 
-	public User(int userId, String userName, String userEmail, String userMobile, String userPassword, Role role,
+	public User(int userId, String userName, String userEmail, String userMobile, String userPassword, Role role, Date registrationDate,
 			List<UserHistory> userHis) {
 		super();
 		this.userId = userId;
@@ -48,7 +48,7 @@ public class User
 		this.userEmail = userEmail;
 		this.userMobile = userMobile;
 		this.userPassword = userPassword;
-//		this.registrationDate = registrationDate;
+		this.registrationDate = registrationDate;
 		this.role = role;
 		this.userHis = userHis;
 	}
@@ -93,13 +93,13 @@ public class User
 		this.userPassword = userPassword;
 	}
 
-//	public LocalDate getRegistrationDate() {
-//		return registrationDate;
-//	}
-//
-//	public void setRegistrationDate(LocalDate registrationDate) {
-//		this.registrationDate = registrationDate;
-//	}
+	public Date getRegistrationDate() {
+		return registrationDate;
+	}
+
+	public void setRegistrationDate(Date registrationDate) {
+		this.registrationDate = registrationDate;
+	}
 
 	public Role getRole() {
 		return role;

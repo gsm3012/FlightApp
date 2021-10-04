@@ -1,7 +1,8 @@
 package com.flightapp.service;
 
-import java.time.LocalDate;
+import java.sql.Time;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.NoSuchElementException;
 import java.util.stream.Collectors;
@@ -13,8 +14,6 @@ import com.flightapp.dao.RoleRepository;
 import com.flightapp.dao.UserRepository;
 import com.flightapp.model.Role;
 import com.flightapp.model.User;
-
-import net.bytebuddy.asm.Advice.Return;
 
 @Service
 public class UserService 
@@ -36,7 +35,7 @@ public class UserService
 		
 		this.roleRepo.save(role);
 		
-//		user.setRegistrationDate(LocalDate.now());
+		user.setRegistrationDate(new Date());
 		user.setRole(role);
 		
 		this.userRepo.save(user);	

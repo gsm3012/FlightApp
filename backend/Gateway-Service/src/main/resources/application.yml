@@ -16,18 +16,42 @@ spring:
               - GET
               - POST
               - PUT
-              - DELETE
-            
+              - DELETE       
               
       routes:
         - id: user-registration-service
           uri: lb://user-registration-service
           predicates:
             - Path=/user/**
-        - id: security-service
-          uri: lb://security-registration-service
+#          filters:
+#            - RedirectTo=302, http://localhost:8081/login
+                 
+        - id: flight-service
+          uri: lb://flight-service
           predicates:
-            - Path=/**
+            - Path=/api/v1.0/admin/airline/**
+
+        - id: flight-search-service
+          uri: lb://flight-search-service
+          predicates:
+            - Path=/api/v1.0/user/flight/search
+
+        - id: flight-schedule-service
+          uri: lb://flight-schedule-service
+          predicates:
+            - Path=/api/v1.0/admin/flight/schedule/**      
+
+        - id: flight-booking-service
+          uri: lb://flight-booking-service
+          predicates:
+            - Path=     
+
+        - id: security-service
+          uri: lb://security-service
+          predicates:
+            - Path=/login
+ 
+          
 
 eureka:
   instance:
